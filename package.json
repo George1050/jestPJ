@@ -1,0 +1,26 @@
+{
+  "name": "proj-tar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+		"test": "jest",
+		"docs": "./node_modules/.bin/jsdoc -c jsdoc.json"
+	},
+  "keywords": [],
+  "author": "George",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "@types/jest": "^26.0.15",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
+    "jsdoc": "^3.6.6"
+  }
+}

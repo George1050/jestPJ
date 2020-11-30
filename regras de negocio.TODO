@@ -1,0 +1,12 @@
+
+Regras de Negocio:
+
+☐ 1- Não é possível adicionar uma tarefa a um projeto que possui mais do que 800 minutos restantes
+
+☐ 2- A tarefa prioritária de um projeto é aquela incompleta e com maior duração.
+
+☐ 3- Caso o sistema não tenha tarefas incompletas, o sistema não possui tarefas prioritárias
+
+☐ 4- A prioridade de um projeto é dada considerando o %tarefas_completadas (peso 2) e o tempo_restante_projeto (peso 4)
+
+☐ 5- Não é possível desabilitar um projeto que tenha tarefas incompletas -> sugestão (criar um campo status na tabela project)

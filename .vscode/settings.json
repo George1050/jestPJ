@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:proj-tar}/src/database/database.sqlite3",
+            "name": "p"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
