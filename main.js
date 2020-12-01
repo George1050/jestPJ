@@ -15,26 +15,27 @@ class Main {
   async createProject(name, duration = 0, status = 0){
     try {
       await projectRepo.createTable();
-      let data = await projectRepo.create(name, duration, status);
-      return data.id;
+      let { id } = await projectRepo.create(name, duration, status);
+      return id;
     } catch (err) {
       console.log(err)
     }
   }
 
   async createTask(name, duration, description, isComplete, projectId){
-    let project;
     try {
-      project = await projectRepo.getById(projectId);
+      let project = await projectRepo.getById(projectId);
       if(project.duration > 800 || project === null){
         return 'falha';
       }
-      if(isComplete === 0){
-        project.duration += duration;
-      }
+
       await taskRepo.createTable();
       let result = await taskRepo.create(name, duration, description, isComplete, projectId);
-      await projectRepo.update(project);
+
+      if(isComplete === 0){
+        project.duration += duration; 
+        await projectRepo.update(project);
+      }
       return result.id
     } catch (err) {
       console.log(err)
@@ -42,7 +43,7 @@ class Main {
     
   }
 
-  //Segundo teste
+  //Segundo teste e Terceiro Teste
   async priorityTask(id){
     let tasks = await taskRepo.getAll(id);
     let aux = {'duration' : null}
@@ -59,7 +60,7 @@ class Main {
     return aux.name;
   }
 
-  //Terceiro Teste
+  //Quarto Teste
   async priorityProject(id){
     try {
       let tasks = await taskRepo.getAll(id);
@@ -74,13 +75,13 @@ class Main {
 
       let calc = project.duration*4;
       calc += (complete/tasks.length*100)*2;
-      return (calc/6).toFixed(1)
+      return parseInt(calc/6)
     } catch (error) {
       console.log(error)
     }
   }
 
-  //Quarto Teste
+  //Quinto Teste
   async taskCompleteAll(tasksIds){
     try {
       for(let i = 0; i < tasksIds.length; i++){
